@@ -2,6 +2,9 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import numpy as np
 import pandas as pd
+
+## Polynomial fitting for mag data
+
 # model function F = muo*(Fdm + p1/r^5 + p2/r^6 + p3/r^7)
 # def func(c, p1, p2, p3):
 #     mu0=4.0*np.pi*1e-7
@@ -22,7 +25,7 @@ fz_data=data_H1_a1_th0['6.5']
 
 plt.plot(c_data, fz_data, 'b+', label='data')
 
-#Fit for the parameters a, b, c of the function func:
+#Fit for the parameters of the function func:
 popt, pcov = curve_fit(func, c_data, fz_data)
 
 #One standard deviation for parameters
