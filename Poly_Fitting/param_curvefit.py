@@ -28,17 +28,17 @@ susc_eff_data=(3*susc_data)/(susc_data+3)
 def func(susc, a, b ):
     return a*(susc**b)
 
-p_data=p0_data_vary
+p_data=p2_data_og
 
 #Fit for the parameters of the function func:
-popt, pcov = curve_fit(func, susc_eff_data, p_data)
+popt, pcov = curve_fit(func, susc_data, p_data)
 
 #One standard deviation for parameters
 perr = np.sqrt(np.diag(pcov))
 print('Standard Deviation of Parameters:',perr)
 
 #Calculate Least Sqaures error
-p_cal=func(susc_eff_data, *popt)
+p_cal=func(susc_data, *popt)
 residuals=p_data-p_cal
 l_sq_err=np.sum(residuals**2)
 squaresum = np.sum((p_data-np.mean(p_data))**2)
@@ -47,9 +47,9 @@ print('Least squares error',l_sq_err)
 print('R^2 value',R2)
 
 # plot
-plt.plot(susc_eff_data, p_data, 'b+', label='data')
-plt.plot(susc_eff_data, func(susc_eff_data, *popt), 'r-',\
-    label='model fit: a=%5.3f, b=%5.3f' % tuple(popt))
+plt.plot(susc_data, p_data, 'b+', label='data')
+plt.plot(susc_data, func(susc_data, *popt), 'r-',\
+    label='model fit: a=%5.4f, b=%5.4f' % tuple(popt))
 plt.xlabel('$\chi_{eff}$ (effective susceptibility)')
 plt.ylabel('p0 parameter')
 plt.title(r"a=1 m, H0=1 A/m, $\theta$=0 (varied)")
