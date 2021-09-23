@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+## Suscpetibility based
 # model function F = muo*(F_DM + p1/r^5 + p2/r^6 + p3/r^7)
 def func_og(c, susc):
     mu0=4.0*np.pi*1e-7
@@ -20,6 +21,28 @@ def func_vary(c, susc):
     p2=	871.245*(susc**2.255)
     p3=-847.429*(susc**2.236)
     return mu0*(p0/(c**4) + p1/(c**5) + p2/(c**6) + p3/(c**7))
+
+# ## Effecitive Suscpetibility based
+# # model function F = muo*(F_DM + p1/r^5 + p2/r^6 + p3/r^7)
+# def func_og(c, susc):
+#     mu0=4.0*np.pi*1e-7
+#     susc_eff=3*susc/(3+susc)
+#     F_DM=-8*np.pi*susc_eff**2/(3*c**4)
+#     p1=-24.754*(susc_eff**6.394)
+#     p2=140.732*(susc_eff**6.337)
+#     p3=-205.165*(susc_eff**6.233)
+#     return mu0*(F_DM + p1/(c**5) + p2/(c**6) + p3/(c**7))
+
+# # model function F = mu0*(p0/r^4 + p1/r^5 + p2/r^6 + p3/r^7)
+# def func_vary(c, susc):
+#     mu0=4.0*np.pi*1e-7
+#     susc_eff=3*susc/(3+susc)
+#     p0= 18.647*(susc_eff**6.773)	
+#     p1=-181.195*(susc_eff**6.643)
+#     p2=	532.496*(susc_eff**6.6)
+#     p3=-523.986*(susc_eff**6.534)
+#     return mu0*(p0/(c**4) + p1/(c**5) + p2/(c**6) + p3/(c**7))
+
 
 susc_data=np.array([0.25,	0.5,	0.75,	1,	1.5,	2,	2.5,	3,	3.5,	4,	4.5,	5,	5.5,	6,	6.5,	7,	7.5,	8])
 c_data = np.linspace(2,4.2,12)
@@ -57,8 +80,10 @@ for ind in range(18):
     plt.xlabel('c')
     plt.ylabel('fz (N)')
     plt.title("a=1 m, H0=1 A/m, $\theta$=0, $\chi=$"+susc_strings[ind])
+    # plt.title("a=1 m, H0=1 A/m, $\theta$=0, $\chi=$"+susc_strings[ind]+ "(based on $\chi_{eff}$)")
     plt.grid('on')
     plt.legend()
     # plt.show()
     susc_strings=np.array(['0,25','0,50','0,75','1,0','1,5','2,0','2,5','3,0','3,5','4,0','4,5','5,0','5,5','6,0','6,5','7,0','7,5','8,0'])
-    plt.savefig('Plots/Fitting/Complete_Model_Function/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'.png')
+    plt.savefig('Plots/Fitting/Complete_Model_Function/Susceptibility_Based/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'.png')
+    # plt.savefig('Plots/Fitting/Complete_Model_Function/Effective_Susceptibility_Based/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
