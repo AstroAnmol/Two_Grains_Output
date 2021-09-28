@@ -41,7 +41,7 @@ def func(data, a0, b0, c0, a1, b1, c1):
 # plt.plot(c_data, fz_data, 'b+', label='data')
 
 #Fit for the parameters of the function func:
-print('fit using complete model function')
+print('Fit using complete model function')
 popt, pcov = curve_fit(func, (c_c,susc_susc), fz_data)
 
 print('fitted parameters', popt)
@@ -55,11 +55,11 @@ MSE = np.mean(SE) # mean squared errors
 RMSE = np.sqrt(MSE) # Root Mean Squared Error, RMSE
 Rsquared = 1.0 - (np.var(absError) / np.var(fz_data))
 print('RMSE:', RMSE)
-print('R-squared:', Rsquared)
+print('R-squared:', Rsquared, '\n') 
 
 
 #Check earlier model fit
-print('fit using parameters separately')
+print('Fit using parameters separately')
 params=np.array([-24.754,	140.732, 	-205.165,    6.394,	    6.337,  	6.233])
 print('fitted parameters', params)
 
@@ -72,10 +72,10 @@ MSE = np.mean(SE) # mean squared errors
 RMSE = np.sqrt(MSE) # Root Mean Squared Error, RMSE
 Rsquared = 1.0 - (np.var(absError) / np.var(fz_data))
 print('RMSE:', RMSE)
-print('R-squared:', Rsquared)
+print('R-squared:', Rsquared, '\n')
 
 #Fit for the parameters of the function func with initial guess as params:
-print('fit using complete model function with inital guess')
+print('Fit using complete model function with initial guess')
 popt, pcov = curve_fit(func, (c_c,susc_susc), fz_data, p0=params)
 
 print('fitted parameters', popt)
@@ -89,4 +89,104 @@ MSE = np.mean(SE) # mean squared errors
 RMSE = np.sqrt(MSE) # Root Mean Squared Error, RMSE
 Rsquared = 1.0 - (np.var(absError) / np.var(fz_data))
 print('RMSE:', RMSE)
-print('R-squared:', Rsquared)
+print('R-squared:', Rsquared, '\n')
+
+#Check Stability of the fitted parameters
+print('Check stability of fitted parameters (1% more)')
+params=popt + popt*0.01
+print('Parameters', params)
+
+modelPredictions = func((c_c,susc_susc), *params) 
+
+absError = modelPredictions - fz_data
+
+SE = np.square(absError) # squared errors
+MSE = np.mean(SE) # mean squared errors
+RMSE = np.sqrt(MSE) # Root Mean Squared Error, RMSE
+Rsquared = 1.0 - (np.var(absError) / np.var(fz_data))
+print('RMSE:', RMSE)
+print('R-squared:', Rsquared, '\n')
+
+#Check Stability of the fitted parameters
+print('Check stability of fitted parameters (1% less)')
+params=popt - popt*0.01
+print('Parameters', params)
+
+modelPredictions = func((c_c,susc_susc), *params) 
+
+absError = modelPredictions - fz_data
+
+SE = np.square(absError) # squared errors
+MSE = np.mean(SE) # mean squared errors
+RMSE = np.sqrt(MSE) # Root Mean Squared Error, RMSE
+Rsquared = 1.0 - (np.var(absError) / np.var(fz_data))
+print('RMSE:', RMSE)
+print('R-squared:', Rsquared, '\n')
+
+#Check Stability of the fitted parameters
+print('Check stability of fitted parameters (5% more)')
+params=popt + popt*0.05
+print('Parameters', params)
+
+modelPredictions = func((c_c,susc_susc), *params) 
+
+absError = modelPredictions - fz_data
+
+SE = np.square(absError) # squared errors
+MSE = np.mean(SE) # mean squared errors
+RMSE = np.sqrt(MSE) # Root Mean Squared Error, RMSE
+Rsquared = 1.0 - (np.var(absError) / np.var(fz_data))
+print('RMSE:', RMSE)
+print('R-squared:', Rsquared, '\n')
+
+#Check Stability of the fitted parameters
+print('Check stability of fitted parameters (5% less)')
+params=popt - popt*0.05
+print('Parameters', params)
+
+modelPredictions = func((c_c,susc_susc), *params) 
+
+absError = modelPredictions - fz_data
+
+SE = np.square(absError) # squared errors
+MSE = np.mean(SE) # mean squared errors
+RMSE = np.sqrt(MSE) # Root Mean Squared Error, RMSE
+Rsquared = 1.0 - (np.var(absError) / np.var(fz_data))
+print('RMSE:', RMSE)
+print('R-squared:', Rsquared, '\n') 
+
+#Check Stability of the fitted parameters
+print('Check stability of fitted parameters (5% less)')
+params=popt - popt*0.05
+print('Parameters', params)
+
+modelPredictions = func((c_c,susc_susc), *params) 
+
+absError = modelPredictions - fz_data
+
+SE = np.square(absError) # squared errors
+MSE = np.mean(SE) # mean squared errors
+RMSE = np.sqrt(MSE) # Root Mean Squared Error, RMSE
+Rsquared = 1.0 - (np.var(absError) / np.var(fz_data))
+print('RMSE:', RMSE)
+print('R-squared:', Rsquared, '\n')
+
+#Check stability of the fitted parameter
+for i in range(100):
+    # Generate random parameters around the popt parameters
+    print('Check stability around the fitted parameters (5%)', i+1, 'th run')
+    rand_set=np.random.uniform(-0.05,0.05,6)
+    print('Random set', rand_set)
+    params=popt+ np.multiply(popt,rand_set)
+    print('Parameters', params)
+
+    modelPredictions = func((c_c,susc_susc), *params) 
+
+    absError = modelPredictions - fz_data
+
+    SE = np.square(absError) # squared errors
+    MSE = np.mean(SE) # mean squared errors
+    RMSE = np.sqrt(MSE) # Root Mean Squared Error, RMSE
+    Rsquared = 1.0 - (np.var(absError) / np.var(fz_data))
+    print('RMSE:', RMSE)
+    print('R-squared:', Rsquared, '\n')
