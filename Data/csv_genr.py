@@ -78,3 +78,79 @@ extra_data_H1_a1_th0=pd.DataFrame(extra_fz_data.transpose(),columns=['0.1','0.15
 extra_data_H1_a1_th0['c']=c_data
 extra_data_H1_a1_th0.set_index('c', inplace=True)
 extra_data_H1_a1_th0.to_csv('Data/extra_data_H1_a1_th0.csv')
+
+## Making Data frame for H0=1 A/m, a=1 m, theta=90 deg 
+
+## Perpedicular case data 
+#susc=0.1
+perp_fz_data_0010=np.array([2.95E-09,	2.03E-09,	1.44E-09,	1.04E-09,	7.69E-10,	5.78E-10,	4.41E-10,	3.41E-10,	2.66E-10,	2.09E-10,	1.66E-10,	1.32E-10])
+#susc=0.15
+perp_fz_data_0015=np.array([6.37E-09,	4.42E-09,	3.14E-09,	2.28E-09,	1.69E-09,	1.28E-09,	9.79E-10,	7.61E-10,	5.98E-10,	4.75E-10,	3.80E-10,	3.06E-10])
+#susc=0.2
+perp_fz_data_0020=np.array([1.09E-08,	7.57E-09,	5.40E-09,	3.93E-09,	2.92E-09,	2.21E-09,	1.70E-09,	1.33E-09,	1.05E-09,	8.33E-10,	6.70E-10,	5.42E-10])
+#susc=0.25
+perp_fz_data_0025=np.array([1.63E-08,	1.14E-08,	8.15E-09,	5.95E-09,	4.43E-09,	3.36E-09,	2.59E-09,	2.02E-09,	1.60E-09,	1.28E-09,	1.03E-09,	8.35E-10])
+#susc=0.5
+perp_fz_data_0050=np.array([5.34E-08,	3.82E-08,	2.76E-08,	2.03E-08,	1.52E-08,	1.16E-08,	8.97E-09,	7.04E-09,	5.59E-09,	4.49E-09,	3.64E-09,	2.97E-09])
+#susc=0.75
+perp_fz_data_0075=np.array([1.00E-07,	7.29E-08,	5.32E-08,	3.94E-08,	2.96E-08,	2.26E-08,	1.76E-08,	1.38E-08,	1.10E-08,	8.83E-09,	7.18E-09,	5.88E-09])
+#susc=1
+perp_fz_data_0100=np.array([1.51E-07,	1.11E-07,	8.19E-08,	6.10E-08,	4.60E-08,	3.52E-08,	2.74E-08,	2.15E-08,	1.72E-08,	1.38E-08,	1.12E-08,	9.23E-09])
+#susc=1.5
+perp_fz_data_0150=np.array([2.55E-07,	1.91E-07,	1.42E-07,	1.07E-07,	8.08E-08,	6.21E-08,	4.83E-08,	3.81E-08,	3.04E-08,	2.46E-08,	2.00E-08,	1.64E-08])
+#susc=2
+perp_fz_data_0200=np.array([3.52E-07,	2.67E-07,	2.01E-07,	1.51E-07,	1.15E-07,	8.88E-08,	6.93E-08,	5.47E-08,	4.37E-08,	3.53E-08,	2.88E-08,	2.37E-08])
+#susc=2.5
+perp_fz_data_0250=np.array([4.41E-07,	3.37E-07,	2.55E-07,	1.93E-07,	1.48E-07,	1.14E-07,	8.90E-08,	7.04E-08,	5.63E-08,	4.55E-08,	3.72E-08,	3.06E-08])
+#susc=3
+perp_fz_data_0300=np.array([5.20E-07,	4.01E-07,	3.05E-07,	2.32E-07,	1.77E-07,	1.37E-07,	1.07E-07,	8.50E-08,	6.80E-08,	5.50E-08,	4.49E-08,	3.70E-08])
+#susc=3.5
+perp_fz_data_0350=np.array([5.90E-07,	4.58E-07,	3.50E-07,	2.67E-07,	2.05E-07,	1.58E-07,	1.24E-07,	9.83E-08,	7.87E-08,	6.37E-08,	5.20E-08,	4.29E-08])
+#susc=4
+perp_fz_data_0400=np.array([6.53E-07,	5.09E-07,	3.91E-07,	2.98E-07,	2.29E-07,	1.78E-07,	1.39E-07,	1.10E-07,	8.85E-08,	7.17E-08,	5.86E-08,	4.83E-08])
+#susc=4.5
+perp_fz_data_0450=np.array([7.10E-07,	5.55E-07,	4.27E-07,	3.27E-07,	2.52E-07,	1.95E-07,	1.53E-07,	1.22E-07,	9.75E-08,	7.89E-08,	6.45E-08,	5.32E-08])
+#susc=5.0
+perp_fz_data_0500=np.array([7.60E-07,	5.97E-07,	4.61E-07,	3.53E-07,	2.72E-07,	2.11E-07,	1.66E-07,	1.32E-07,	1.06E-07,	8.56E-08,	7.00E-08,	5.77E-08])
+#susc=5.5
+perp_fz_data_0550=np.array([8.06E-07,	6.35E-07,	4.91E-07,	3.77E-07,	2.91E-07,	2.26E-07,	1.78E-07,	1.41E-07,	1.13E-07,	9.16E-08,	7.49E-08,	6.18E-08])
+#susc=6.0
+perp_fz_data_0600=np.array([8.47E-07,	6.69E-07,	5.18E-07,	3.99E-07,	3.08E-07,	2.40E-07,	1.88E-07,	1.49E-07,	1.20E-07,	9.72E-08,	7.95E-08,	6.56E-08])
+#susc=6.5
+perp_fz_data_0650=np.array([8.85E-07,	7.00E-07,	5.43E-07,	4.19E-07,	3.23E-07,	2.52E-07,	1.98E-07,	1.57E-07,	1.26E-07,	1.02E-07,	8.37E-08,	6.91E-08])
+#susc=7.0
+perp_fz_data_0700=np.array([9.19E-07,	7.29E-07,	5.66E-07,	4.37E-07,	3.38E-07,	2.63E-07,	2.07E-07,	1.64E-07,	1.32E-07,	1.07E-07,	8.76E-08,	7.23E-08])
+#susc=7.5
+perp_fz_data_0750=np.array([9.51E-07,	7.55E-07,	5.88E-07,	4.54E-07,	3.51E-07,	2.74E-07,	2.15E-07,	1.71E-07,	1.37E-07,	1.11E-07,	9.11E-08,	7.52E-08])
+#susc=8.0
+perp_fz_data_0800=np.array([9.79E-07,	7.79E-07,	6.07E-07,	4.69E-07,	3.63E-07,	2.83E-07,	2.23E-07,	1.77E-07,	1.42E-07,	1.15E-07,	9.44E-08,	7.80E-08])
+#susc=8.5
+perp_fz_data_0850=np.array([1.01E-06,	8.01E-07,	6.25E-07,	4.84E-07,	3.75E-07,	2.92E-07,	2.30E-07,	1.83E-07,	1.47E-07,	1.19E-07,	9.75E-08,	8.05E-08])
+#susc=9.0
+perp_fz_data_0900=np.array([1.03E-06,	8.22E-07,	6.42E-07,	4.97E-07,	3.85E-07,	3.00E-07,	2.37E-07,	1.88E-07,	1.51E-07,	1.23E-07,	1.00E-07,	8.29E-08])
+#susc=9.5
+perp_fz_data_0950=np.array([1.05E-06,	8.41E-07,	6.58E-07,	5.09E-07,	3.95E-07,	3.08E-07,	2.43E-07,	1.93E-07,	1.55E-07,	1.26E-07,	1.03E-07,	8.51E-08])
+#susc=10.0
+perp_fz_data_1000=np.array([1.07E-06,	8.59E-07,	6.72E-07,	5.21E-07,	4.04E-07,	3.15E-07,	2.48E-07,	1.98E-07,	1.59E-07,	1.29E-07,	1.06E-07,	8.71E-08])
+#susc=10.5
+perp_fz_data_1050=np.array([1.09E-06,	8.75E-07,	6.86E-07,	5.32E-07,	4.13E-07,	3.22E-07,	2.54E-07,	2.02E-07,	1.62E-07,	1.32E-07,	1.08E-07,	8.91E-08])
+#susc=11.0
+perp_fz_data_1100=np.array([1.11E-06,	8.91E-07,	6.98E-07,	5.42E-07,	4.21E-07,	3.29E-07,	2.59E-07,	2.06E-07,	1.66E-07,	1.34E-07,	1.10E-07,	9.09E-08])
+#susc=11.5
+perp_fz_data_1150=np.array([1.13E-06,	9.05E-07,	7.10E-07,	5.51E-07,	4.28E-07,	3.34E-07,	2.64E-07,	2.10E-07,	1.69E-07,	1.37E-07,	1.12E-07,	9.26E-08])
+#susc=12.0
+perp_fz_data_1200=np.array([1.15E-06,	9.19E-07,	7.21E-07,	5.60E-07,	4.35E-07,	3.40E-07,	2.68E-07,	2.13E-07,	1.72E-07,	1.39E-07,	1.14E-07,	9.42E-08])
+
+perp_fz_data=np.array([perp_fz_data_0025,perp_fz_data_0050,perp_fz_data_0075,perp_fz_data_0100,perp_fz_data_0150,perp_fz_data_0200,perp_fz_data_0250,perp_fz_data_0300,perp_fz_data_0350,perp_fz_data_0400,perp_fz_data_0450,perp_fz_data_0500,perp_fz_data_0550,perp_fz_data_0600,perp_fz_data_0650,perp_fz_data_0700,perp_fz_data_0750,perp_fz_data_0800])
+data_H1_a1_th90=pd.DataFrame(perp_fz_data.transpose(),columns=['0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0'])
+#data_H1_a1_th0=pd.DataFrame()
+data_H1_a1_th90['c']=c_data
+data_H1_a1_th90.set_index('c', inplace=True)
+data_H1_a1_th90.to_csv('Data/data_H1_a1_th90.csv')
+
+extra_perp_fz_data=np.array([perp_fz_data_0010,perp_fz_data_0015,perp_fz_data_0020,perp_fz_data_0850,perp_fz_data_0900,perp_fz_data_0950,perp_fz_data_1000,perp_fz_data_1050,perp_fz_data_1100,perp_fz_data_1150,perp_fz_data_1200])
+extra_data_H1_a1_th90=pd.DataFrame(extra_perp_fz_data.transpose(),columns=['0.1','0.15','0.2','8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0'])
+#data_H1_a1_th0=pd.DataFrame()
+extra_data_H1_a1_th90['c']=c_data
+extra_data_H1_a1_th90.set_index('c', inplace=True)
+extra_data_H1_a1_th90.to_csv('Data/extra_data_H1_a1_th90.csv')
