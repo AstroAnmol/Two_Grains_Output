@@ -1,0 +1,221 @@
+Perpendicular Fitting for FDM case
+
+Susceptibilty:0.25
+Optimised parameters [-0.17999811  0.83169057 -1.06815579]
+Standard Deviation of Parameters: [0.01708113 0.07957112 0.09169818]
+Least squares error 1.5561609136756555e-21
+R^2 value 0.9999939115375431
+
+Susceptibilty:0.5
+Optimised parameters [-0.52059341  2.6918324  -4.01651512]
+Standard Deviation of Parameters: [0.02691333 0.12537364 0.14448123]
+Least squares error 3.8632815146714714e-21
+R^2 value 0.9999985970415817
+
+Susceptibilty:0.75
+Optimised parameters [-1.03793375  5.72875866 -9.18156295]
+Standard Deviation of Parameters: [0.06047393 0.28171313 0.32464772]
+Least squares error 1.95055038869983e-20
+R^2 value 0.9999979910968043
+
+Susceptibilty:1.0
+Optimised parameters [ -1.29247659   7.61549648 -13.53289384]
+Standard Deviation of Parameters: [0.08172158 0.38069369 0.43871345]
+Least squares error 3.561994847217877e-20
+R^2 value 0.9999983924004713
+
+Susceptibilty:1.5
+Optimised parameters [ -2.19097308  13.49146314 -25.75806534]
+Standard Deviation of Parameters: [0.20944666 0.97569121 1.12439185]
+Least squares error 2.3397378362263164e-19
+R^2 value 0.9999963163184328
+
+Susceptibilty:2.0
+Optimised parameters [ -2.74844985  17.67385832 -36.75920156]
+Standard Deviation of Parameters: [0.23602947 1.09952524 1.26709897]
+Least squares error 2.971338731184923e-19
+R^2 value 0.9999975517755665
+
+Susceptibilty:2.5
+Optimised parameters [ -2.38517937  17.32272396 -42.51232199]
+Standard Deviation of Parameters: [0.4046491  1.88502693 2.17231538]
+Least squares error 8.733253524954968e-19
+R^2 value 0.9999954165103921
+
+Susceptibilty:3.0
+Optimised parameters [ -3.26331726  22.78958443 -54.97446328]
+Standard Deviation of Parameters: [0.45245936 2.10774698 2.42897885]
+Least squares error 1.0918925552429822e-18
+R^2 value 0.9999958927537674
+
+Susceptibilty:3.5
+Optimised parameters [ -3.11407228  23.46630538 -61.84990563]
+Standard Deviation of Parameters: [0.66471442 3.09652053 3.56844665]
+Least squares error 2.3566279532764385e-18
+R^2 value 0.9999931252998762
+
+Susceptibilty:4.0
+Optimised parameters [ -3.04015003  23.82708076 -67.49202097]
+Standard Deviation of Parameters: [0.83615957 3.89518499 4.48883215]
+Least squares error 3.7290527975336605e-18
+R^2 value 0.9999911246506131
+
+Susceptibilty:4.5
+Optimised parameters [ -1.90261958  19.14421771 -66.97205511]
+Standard Deviation of Parameters: [0.98620619 4.59416658 5.29434343]
+Least squares error 5.187477970916498e-18
+R^2 value 0.9999895471553658
+
+Susceptibilty:5.0
+Optimised parameters [ -2.09066605  21.00650941 -74.08792611]
+Standard Deviation of Parameters: [0.9864209  4.59516478 5.2954916 ]
+Least squares error 5.1897393334060084e-18
+R^2 value 0.9999908893283046
+
+Susceptibilty:5.5
+Optimised parameters [ -1.70764812  19.87487047 -77.14226277]
+Standard Deviation of Parameters: [1.15090889 5.36142115 6.17853089]
+Least squares error 7.06485994229635e-18
+R^2 value 0.9999889805179575
+
+Susceptibilty:6.0
+Optimised parameters [ -1.27413566  18.30531041 -79.33847019]
+Standard Deviation of Parameters: [1.39402118 6.4939389  7.48364892]
+Least squares error 1.0364763562061575e-17
+R^2 value 0.9999853658384875
+
+Susceptibilty:6.5
+Optimised parameters [ -0.85913386  16.50653898 -80.68651029]
+Standard Deviation of Parameters: [1.58007505 7.36066665 8.4824812 ]
+Least squares error 1.3316016051077977e-17
+R^2 value 0.9999827772224147
+
+Susceptibilty:7.0
+Optimised parameters [ -0.61678646  15.90405396 -83.57685415]
+Standard Deviation of Parameters: [1.53084663 7.13132893 8.21817912]
+Least squares error 1.2499288390165341e-17
+R^2 value 0.999985017976871
+
+Susceptibilty:7.5
+Optimised parameters [ -0.33460259  14.96980574 -85.68965691]
+Standard Deviation of Parameters: [ 1.92513138  8.96805444 10.33481534]
+Least squares error 1.9768294304813564e-17
+R^2 value 0.999977880486393
+
+Susceptibilty:8.0
+Optimised parameters [ -0.12452357  14.0731785  -87.52551049]
+Standard Deviation of Parameters: [1.79801918 8.37591961 9.65245768]
+Least squares error 1.724495305706882e-17
+R^2 value 0.9999817978888684
+
+
+Perpendicular results for the varied function
+
+
+Susceptibilty:0.25
+Optimised parameters [ 0.13809788  0.47553721 -0.8166152   0.28668588]
+Standard Deviation of Parameters: [0.01057767 0.08182357 0.20708925 0.17171809]
+Least squares error 1.7163257750878504e-22
+R^2 value 0.9999993284894285
+
+Susceptibilty:0.5
+Optimised parameters [ 0.75088642 -0.37800356  2.33329838 -3.72181441]
+Standard Deviation of Parameters: [0.04975675 0.38489331 0.9741353  0.80775119]
+Least squares error 3.797774314712696e-21
+R^2 value 0.9999986208306526
+
+Susceptibilty:0.75
+Optimised parameters [  1.65229327  -2.15136673   8.52842143 -11.482774  ]
+Standard Deviation of Parameters: [0.10055654 0.77785521 1.96869224 1.63243651]
+Least squares error 1.5511186733913427e-20
+R^2 value 0.9999984024779478
+
+Susceptibilty:1.0
+Optimised parameters [ 2.03761427  1.16522969  1.43573535 -8.45337618]
+Standard Deviation of Parameters: [0.1026314  0.79390433 2.00930965 1.66611547]
+Least squares error 1.6158311415621334e-20
+R^2 value 0.9999992707430827
+
+Susceptibilty:1.5
+Optimised parameters [  3.76907733   1.04692694   5.34995007 -19.0660659 ]
+Standard Deviation of Parameters: [0.36125927 2.79452432 7.07273595 5.86470877]
+Least squares error 2.001947023070794e-19
+R^2 value 0.9999968481360462
+
+Susceptibilty:2.0
+Optimised parameters [  5.75720748  -0.6296448   12.34624919 -32.38012192]
+Standard Deviation of Parameters: [0.42925874 3.32053024 8.4040016  6.96857467]
+Least squares error 2.8266465004508047e-19
+R^2 value 0.9999976709942375
+
+Susceptibilty:2.5
+Optimised parameters [  6.04708705  11.05347449 -16.46800041 -14.73769022]
+Standard Deviation of Parameters: [0.4358903  3.37183221 8.53385549 7.07626316]
+Least squares error 2.9145594357737126e-19
+R^2 value 0.9999984703463781
+
+Susceptibilty:3.0
+Optimised parameters [  8.01338806   7.62493282  -4.58828975 -32.47094368]
+Standard Deviation of Parameters: [ 0.68029806  5.26245723 13.31890413 11.04403541]
+Least squares error 7.099225299413091e-19
+R^2 value 0.9999973295663365
+
+Susceptibilty:3.5
+Optimised parameters [  8.30515826  17.1393721  -27.45981017 -19.99066986]
+Standard Deviation of Parameters: [ 0.82141161  6.35403403 16.08158493 13.3348327 ]
+Least squares error 1.0350054786821995e-18
+R^2 value 0.9999969807061473
+
+Susceptibilty:4.0
+Optimised parameters [  9.40932421  19.33662353 -32.43802684 -21.24434429]
+Standard Deviation of Parameters: [ 1.17442815  9.08479205 22.99291935 19.06569382]
+Least squares error 2.1158027528815896e-18
+R^2 value 0.9999949642738558
+
+Susceptibilty:4.5
+Optimised parameters [  9.35434871  30.63219678 -62.66261453   0.26983701]
+Standard Deviation of Parameters: [ 1.07610754  8.32428846 21.06836832 17.47008284]
+Least squares error 1.7768275161718405e-18
+R^2 value 0.9999964196663441
+
+Susceptibilty:5.0
+Optimised parameters [ 10.99572601  26.68841869 -51.35684159 -14.60813424]
+Standard Deviation of Parameters: [ 1.2820144   9.91701744 25.09919854 20.81220166]
+Least squares error 2.521243497185574e-18
+R^2 value 0.9999955739160887
+
+Susceptibilty:5.5
+Optimised parameters [ 10.44885843  39.45105453 -83.61630178   7.92334807]
+Standard Deviation of Parameters: [ 1.02347014  7.91704724 20.03742934 16.61499549]
+Least squares error 1.6068777883943914e-18
+R^2 value 0.999997493657188
+
+Susceptibilty:6.0
+Optimised parameters [  10.30139829   48.51379788 -106.8835739    23.56180104]
+Standard Deviation of Parameters: [ 1.24512774  9.63169013 24.37708072 20.21344277]
+Least squares error 2.378213379588898e-18
+R^2 value 0.9999966421656896
+
+Susceptibilty:6.5
+Optimised parameters [  10.38077524   55.20903941 -124.4736358    35.19356565]
+Standard Deviation of Parameters: [ 1.44151294 11.15082815 28.22190293 23.40156138]
+Least squares error 3.1875589048922425e-18
+R^2 value 0.9999958772490324
+
+Susceptibilty:7.0
+Optimised parameters [  11.29429727   54.76039164 -123.33867992   30.87513302]
+Standard Deviation of Parameters: [ 1.30662576 10.10740414 25.58106534 21.21177488]
+Least squares error 2.6189433736262074e-18
+R^2 value 0.9999968608556765
+
+Susceptibilty:7.5
+Optimised parameters [  10.33674547   68.30577078 -157.62270207   56.17467855]
+Standard Deviation of Parameters: [ 1.72949269 13.37849496 33.85995535 28.07662415]
+Least squares error 4.588380630038614e-18
+R^2 value 0.9999948658823966
+
+Susceptibilty:8.0
+Optimised parameters [  11.51252748   64.88998054 -149.40218024   46.84481547]
+Standard Deviation of Parameters: [ 1.53754477 11.89368202 30.10200662 24.96053753]
+Least squares error 3.626417733168673e-18
+R^2 value 0.9999961723027966
