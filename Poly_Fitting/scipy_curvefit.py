@@ -5,10 +5,10 @@ import pandas as pd
 
 ## Polynomial fitting for mag data
 
+
 # model function F = muo*(Fdm + p1/r^5 + p2/r^6 + p3/r^7)
 def func(c, p1, p2, p3):
     mu0=4.0*np.pi*1e-7
-    susc=8.0
     susc_eff=3*susc/(3+susc)
     # F_DM=-8*np.pi*susc_eff**2/(3*c**4) # (parallel case)
     F_DM=4*np.pi*susc_eff**2/(3*c**4) # (perpendicular case)
@@ -23,14 +23,16 @@ def func(c, p1, p2, p3):
 data_H1_a1_th0=pd.read_csv('Data/data_H1_a1_th0.csv')
 data_H1_a1_th90=pd.read_csv('Data/data_H1_a1_th90.csv')
 
-# susc_data=np.array([0.25,	0.5,	0.75,	1,	1.5,	2,	2.5,	3,	3.5,	4,	4.5,	5,	5.5,	6,	6.5,	7,	7.5,	8])
-    
 data=data_H1_a1_th90
+# data=data_H1_a1_th0
+
+susc_data=np.array([0.25,	0.5,	0.75,	1,	1.5,	2,	2.5,	3,	3.5,	4,	4.5,	5,	5.5,	6,	6.5,	7,	7.5,	8])
+c_data=data['c']    
+
 
 for ind in range(18):
     susc_strings=np.array(['0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0'])
-
-    c_data=data['c']
+    susc=susc_data[ind]
     fz_data=data[susc_strings[ind]]
 
     #Fit for the parameters of the function func:
@@ -39,6 +41,7 @@ for ind in range(18):
     #One standard deviation for parameters
     perr = np.sqrt(np.diag(pcov))
     print('Susceptibilty:'+susc_strings[ind])
+    print('Optimised parameters',popt)
     print('Standard Deviation of Parameters:',perr)
 
     # plt.plot(c_data, func(c_data, popt[0]+perr[0],popt[1]-perr[1],popt[2]+perr[2],popt[3]-perr[3]), 'r--')
