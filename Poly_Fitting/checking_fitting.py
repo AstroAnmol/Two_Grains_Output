@@ -61,7 +61,7 @@ c_data = np.linspace(2,4.2,12)
 
 susc_susc, c_c = np.meshgrid(susc_data,c_data)
 
-params=np.array([ -56.47485756,  282.0725787,  -365.87755112,    5.25623737,    5.37819318,  5.43538851])
+params=np.array([ -56.47485756,  282.0725787,  -365.87755112,    5.25623737,    5.37819318,  5.43538851]) #final parameters
 fz_og=func_og((c_c,susc_susc), *params)
 # fz_vary=func_vary(c_c,susc_susc)
 
