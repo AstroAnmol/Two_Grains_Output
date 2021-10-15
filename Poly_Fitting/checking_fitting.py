@@ -1,4 +1,4 @@
-# Parallel Case
+# Parallel Case (Power Law)
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -101,6 +101,6 @@ for ind in range(18):
     plt.legend()
     # plt.show()
     susc_strings=np.array(['0,25','0,50','0,75','1,0','1,5','2,0','2,5','3,0','3,5','4,0','4,5','5,0','5,5','6,0','6,5','7,0','7,5','8,0'])
-    # plt.savefig('Plots/Fitting/Complete_Model_Function/Susceptibility_Based/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'.png')
-    # plt.savefig('Plots/Fitting/Complete_Model_Function/Effective_Susceptibility_Based/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
-    plt.savefig('Plots/Fitting/Complete_Model_Function/Effective_Susceptibility_Initial/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
+    # plt.savefig('Plots/Fitting/Parallel_Case/Power_Law/Complete_Model_Function/Susceptibility_Based/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'.png')
+    # plt.savefig('Plots/Fitting/Parallel_Case/Power_Law/Complete_Model_Function/Effective_Susceptibility_Based/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
+    plt.savefig('Plots/Fitting/Parallel_Case/Power_Law/Complete_Model_Function/Effective_Susceptibility_Initial/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
