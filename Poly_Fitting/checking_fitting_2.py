@@ -80,7 +80,6 @@ params_vary=np.array([-2.35006285, 8.70658619, -2.96749461, 0.51760021, 20.29772
 params=np.array([2.1679403, -5.10571752, 0.91979498, -0.14520514, -11.99291281, 32.60814942, -8.5414691, 1.26892871, \
     12.57083862, -53.1809105, 17.62267505, -2.66077834]) 
 
-# params=np.array([ -56.47485756,  282.0725787,  -365.87755112,    5.25623737,    5.37819318,  5.43538851]) #final parameters
 fz_og=func_og((c_c,susc_susc), *params)
 # fz_vary=func_vary((c_c,susc_susc), *params_vary)
 
@@ -118,6 +117,6 @@ for ind in range(18):
     plt.legend()
     # plt.show()
     susc_strings=np.array(['0,25','0,50','0,75','1,0','1,5','2,0','2,5','3,0','3,5','4,0','4,5','5,0','5,5','6,0','6,5','7,0','7,5','8,0'])
-    # plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Susceptibility_Based/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'.png')
-    # plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Effective_Susceptibility_Based/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
-    plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Effective_Susceptibility_Initial/a_1_H0_1_th_0_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
+    # plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Susceptibility_Based/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'.png')
+    # plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Effective_Susceptibility_Based/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
+    plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Effective_Susceptibility_Initial/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
