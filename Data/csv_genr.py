@@ -100,7 +100,7 @@ fz_data_9000=np.array([-5.99E-04,	-1.02E-05,	-4.82E-06,	-2.89E-06,	-1.92E-06,	-1
 #susc=95.0
 fz_data_9500=np.array([-6.33E-04,	-1.03E-05,	-4.85E-06,	-2.90E-06,	-1.93E-06,	-1.37E-06,	-1.00E-06,	-7.62E-07,	-5.91E-07,	-4.67E-07,	-3.75E-07,	-3.05E-07])
 #susc=100.0
-fz_data_10000=np.arrya([-6.66E-04,	-1.03E-05,	-4.87E-06,	-2.92E-06,	-1.94E-06,	-1.37E-06,	-1.01E-06,	-7.64E-07,	-5.93E-07,	-4.68E-07,	-3.76E-07,	-3.06E-07])
+fz_data_10000=np.array([-6.66E-04,	-1.03E-05,	-4.87E-06,	-2.92E-06,	-1.94E-06,	-1.37E-06,	-1.01E-06,	-7.64E-07,	-5.93E-07,	-4.68E-07,	-3.76E-07,	-3.06E-07])
 
 
 fz_data=np.array([fz_data_0025,fz_data_0050,fz_data_0075,fz_data_0100,fz_data_0150,fz_data_0200,fz_data_0250,fz_data_0300,fz_data_0350,fz_data_0400,fz_data_0450,fz_data_0500,fz_data_0550,fz_data_0600,fz_data_0650,fz_data_0700,fz_data_0750,fz_data_0800])
@@ -116,6 +116,12 @@ extra_data_H1_a1_th0=pd.DataFrame(extra_fz_data.transpose(),columns=['0.1','0.15
 extra_data_H1_a1_th0['c']=c_data
 extra_data_H1_a1_th0.set_index('c', inplace=True)
 extra_data_H1_a1_th0.to_csv('Data/extra_data_H1_a1_th0.csv')
+
+higher_fz_data=np.array([fz_data_1500,fz_data_2000,fz_data_2500,fz_data_3000,fz_data_3500,fz_data_4000,fz_data_4500,fz_data_5000,fz_data_5500,fz_data_6000,fz_data_6500,fz_data_7000,fz_data_7500,fz_data_8000,fz_data_8500,fz_data_9000,fz_data_9500,fz_data_10000])
+higher_data_H1_a1_th0=pd.DataFrame(higher_fz_data.transpose(),columns=['15.0','20.0','25.0','30.0','35.0','40.0','45.0','50.0','55.0','60.0','65.0','70.0','75.0','80.0','85.0','90.0','95.0','100.0'])
+higher_data_H1_a1_th0['c']=c_data
+higher_data_H1_a1_th0.set_index('c', inplace=True)
+higher_data_H1_a1_th0.to_csv('Data/higher_data_H1_a1_th0.csv')
 
 ## Making Data frame for H0=1 A/m, a=1 m, theta=90 deg 
 
