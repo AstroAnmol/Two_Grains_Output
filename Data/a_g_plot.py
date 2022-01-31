@@ -19,11 +19,13 @@ def func(g, i):
     ans=3*(H**2)*fz_th0_data[i]/(4*np.pi*rho)
     return -ans/(g*9.81)
 
-# def func_self(g):
-#     return (g*9.81)/(1.0e-6)
-#     S=1
-#     return np.sqrt((2.5*1e-6)*(S**2)/(g))
+def func_self(g):
+    return (g*9.81)/(1.0e-6)
 
+def func_vand(g):
+    S=0.01
+    return np.sqrt((2.5*1e-6)*(S**2)/(g*9.81))
+    
 print(susc_data[7],susc_data[11],susc_data[15])
 print(fz_th0_data[7],fz_th0_data[11],fz_th0_data[15])
 plt.figure()
@@ -34,7 +36,8 @@ plt.loglog(g_data,func(g_data, 7), '--', label='$\chi=40.0$')
 #plt.loglog(g_data,func(g_data,11), '--', label='$\chi=60.0$')
 plt.loglog(g_data,func(g_data,15), '--', label='$\chi=80.0$')
 
-# plt.loglog(g_data,func_self(g_data), label='self gravity radius')
+plt.loglog(g_data,func_self(g_data), label='self gravity radius')
+plt.loglog(g_data,func_vand(g_data), label='VDW for S=0.01')
 
 # plt.ylim(1.0e-6,1)
 plt.xlim(1.0e-8,1)
