@@ -184,6 +184,29 @@ perp_fz_data_1100=np.array([1.11E-06,	8.91E-07,	6.98E-07,	5.42E-07,	4.21E-07,	3.
 perp_fz_data_1150=np.array([1.13E-06,	9.05E-07,	7.10E-07,	5.51E-07,	4.28E-07,	3.34E-07,	2.64E-07,	2.10E-07,	1.69E-07,	1.37E-07,	1.12E-07,	9.26E-08])
 #susc=12.0
 perp_fz_data_1200=np.array([1.15E-06,	9.19E-07,	7.21E-07,	5.60E-07,	4.35E-07,	3.40E-07,	2.68E-07,	2.13E-07,	1.72E-07,	1.39E-07,	1.14E-07,	9.42E-08])
+#########################
+## Higher susc data
+#susc=15.0
+perp_fz_data_1500=np.array([1.23E-06,	9.92E-07,	7.81E-07,	6.08E-07,	4.73E-07,	3.70E-07,	2.92E-07,	2.33E-07,	1.87E-07,	1.52E-07,	1.25E-07,	1.03E-07])
+#susc=20.0
+perp_fz_data_2000=np.array([1.32E-06,	1.06E-06,	8.41E-07,	6.56E-07,	5.11E-07,	4.00E-07,	3.16E-07,	2.52E-07,	2.03E-07,	1.65E-07,	1.35E-07,	1.12E-07])
+#susc=30.0
+perp_fz_data_3000=np.array([1.41E-06,	1.15E-06,	9.08E-07,	7.11E-07,	5.55E-07,	4.35E-07,	3.44E-07,	2.74E-07,	2.21E-07,	1.80E-07,	1.47E-07,	1.22E-07])
+#susc=40.0
+perp_fz_data_4000=np.array([1.47E-06,	1.19E-06,	9.46E-07,	7.41E-07,	5.79E-07,	4.54E-07,	3.59E-07,	2.87E-07,	2.31E-07,	1.88E-07,	1.54E-07,	1.27E-07])
+#susc=50.0
+perp_fz_data_5000=np.array([1.50E-06,	1.22E-06,	9.69E-07,	7.60E-07,	5.94E-07,	4.66E-07,	3.69E-07,	2.95E-07,	2.37E-07,	1.93E-07,	1.58E-07,	1.31E-07])
+#susc=60.0
+perp_fz_data_6000=np.array([1.52E-06,	1.24E-06,	9.86E-07,	7.73E-07,	6.05E-07,	4.75E-07,	3.76E-07,	3.00E-07,	2.42E-07,	1.97E-07,	1.61E-07,	1.33E-07])
+#susc=70.0
+perp_fz_data_7000=np.array([1.54E-06,	1.25E-06,	9.97E-07,	7.83E-07,	6.12E-07,	4.81E-07,	3.81E-07,	3.04E-07,	2.45E-07,	1.99E-07,	1.63E-07,	1.35E-07])
+#susc=80.0
+perp_fz_data_8000=np.array([1.55E-06,	1.26E-06,	1.01E-06,	7.90E-07,	6.18E-07,	4.86E-07,	3.84E-07,	3.07E-07,	2.47E-07,	2.01E-07,	1.65E-07,	1.37E-07])
+#susc=90.0
+perp_fz_data_9000=np.array([1.56E-06,	1.27E-06,	1.01E-06,	7.96E-07,	6.23E-07,	4.89E-07,	3.87E-07,	3.09E-07,	2.49E-07,	2.03E-07,	1.66E-07,	1.38E-07])
+#susc=100.0
+perp_fz_data_10000=np.array([1.57E-06,	1.28E-06,	1.02E-06,	8.00E-07,	6.27E-07,	4.92E-07,	3.90E-07,	3.11E-07,	2.51E-07,	2.04E-07,	1.67E-07,	1.38E-07])
+
 
 perp_fz_data=np.array([perp_fz_data_0025,perp_fz_data_0050,perp_fz_data_0075,perp_fz_data_0100,perp_fz_data_0150,perp_fz_data_0200,perp_fz_data_0250,perp_fz_data_0300,perp_fz_data_0350,perp_fz_data_0400,perp_fz_data_0450,perp_fz_data_0500,perp_fz_data_0550,perp_fz_data_0600,perp_fz_data_0650,perp_fz_data_0700,perp_fz_data_0750,perp_fz_data_0800])
 data_H1_a1_th90=pd.DataFrame(perp_fz_data.transpose(),columns=['0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0'])
@@ -198,3 +221,9 @@ extra_data_H1_a1_th90=pd.DataFrame(extra_perp_fz_data.transpose(),columns=['0.1'
 extra_data_H1_a1_th90['c']=c_data
 extra_data_H1_a1_th90.set_index('c', inplace=True)
 extra_data_H1_a1_th90.to_csv('Data/extra_data_H1_a1_th90.csv')
+
+higher_perp_fz_data=np.array([perp_fz_data_1500,perp_fz_data_2000,perp_fz_data_3000,perp_fz_data_4000,perp_fz_data_5000,perp_fz_data_6000,perp_fz_data_7000,perp_fz_data_8000,perp_fz_data_9000,perp_fz_data_10000])
+higher_data_H1_a1_th90=pd.DataFrame(higher_perp_fz_data.transpose(),columns=['15.0','20.0','30.0','40.0','50.0','60.0','70.0','80.0','90.0','100.0'])
+higher_data_H1_a1_th90['c']=c_data
+higher_data_H1_a1_th90.set_index('c', inplace=True)
+higher_data_H1_a1_th90.to_csv('Data/higher_data_H1_a1_th90.csv')
