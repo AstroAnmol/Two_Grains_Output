@@ -7,7 +7,7 @@ import sys
 
 ## Polynomial fitting for mag data
 
-case_selection=1 ## 0 for parallel and 1 for perpendicular
+case_selection=0 ## 0 for parallel and 1 for perpendicular
 
 #import the data
 data_H1_a1_th0=pd.read_csv('Data/csv_files/data_H1_a1_th0.csv')
@@ -66,6 +66,11 @@ for i in range(2):
         def func(c, p0, p1, p2, p3):
             mu0=4.0*np.pi*1e-7
             return mu0*(p0/(c**4) + p1/(c**5) + p2/(c**6) + p3/(c**7))
+    
+    if func_selection==0:
+        complete_param_data=np.zeros((tot_ind,8))
+    elif func_selection==1:
+        complete_param_data=np.zeros((tot_ind,10))
 
     for ind in range(tot_ind):
         if case_selection==0:
@@ -97,6 +102,12 @@ for i in range(2):
         print('Least squares error',np.sqrt(l_sq_err))
         print('R^2 value',R2)
         print()
+
+        param_data=np.append(popt, perr)
+        param_data=np.append(param_data,np.sqrt(l_sq_err))
+        param_data=np.append(param_data,R2)
+
+        complete_param_data[ind]=param_data
 
         # plot
         plt.figure()
@@ -135,3 +146,31 @@ for i in range(2):
                 plt.savefig('Plots/Fitting/Perpendicular_Case/vary_a_1_H0_1_th_90_chi_'+susc_strings[ind]+'.png', bbox_inches='tight')
     
         plt.close()
+    
+    if case_selection==0:
+        if func_selection==0:
+            param_data_H1_a1_th0=pd.DataFrame(complete_param_data.transpose(),columns=['0.1','0.15','0.2','0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0',\
+                '7.5','8.0','8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0','15.0','20.0','25.0','30.0','35.0','40.0','45.0','50.0','55.0','60.0','65.0','70.0','75.0','80.0','85.0','90.0','95.0','100.0'])
+            param_data_H1_a1_th0['Parameters']=['p1','p2','p3','std p1','std p2','std p3','least sq err','R2']
+            param_data_H1_a1_th0.set_index('Parameters', inplace=True)
+            param_data_H1_a1_th0.to_csv('Data/csv_files/param_data_H1_a1_th0.csv')
+        elif func_selection==1:
+            param_data_H1_a1_th0=pd.DataFrame(complete_param_data.transpose(),columns=['0.1','0.15','0.2','0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0',\
+                '7.5','8.0','8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0','15.0','20.0','25.0','30.0','35.0','40.0','45.0','50.0','55.0','60.0','65.0','70.0','75.0','80.0','85.0','90.0','95.0','100.0'])
+            param_data_H1_a1_th0['Parameters']=['p0','p1','p2','p3','std p0','std p1','std p2','std p3','least sq err','R2']
+            param_data_H1_a1_th0.set_index('Parameters', inplace=True)
+            param_data_H1_a1_th0.to_csv('Data/csv_files/param_data_H1_a1_th0_vary.csv')
+
+    elif case_selection==1:
+        if func_selection==0:
+            param_data_H1_a1_th90=pd.DataFrame(complete_param_data.transpose(),columns=['0.1','0.15','0.2','0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0',\
+                '8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0','15.0','20.0','30.0','40.0','50.0','60.0','70.0','80.0','90.0','100.0'])
+            param_data_H1_a1_th90['Parameters']=['p1','p2','p3','std p1','std p2','std p3','least sq err','R2']
+            param_data_H1_a1_th90.set_index('Parameters', inplace=True)
+            param_data_H1_a1_th90.to_csv('Data/csv_files/param_data_H1_a1_th90.csv')
+        elif func_selection==1:
+            param_data_H1_a1_th90=pd.DataFrame(complete_param_data.transpose(),columns=['0.1','0.15','0.2','0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0',\
+                '8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0','15.0','20.0','30.0','40.0','50.0','60.0','70.0','80.0','90.0','100.0'])
+            param_data_H1_a1_th90['Parameters']=['p0','p1','p2','p3','std p0','std p1','std p2','std p3','least sq err','R2']
+            param_data_H1_a1_th90.set_index('Parameters', inplace=True)
+            param_data_H1_a1_th90.to_csv('Data/csv_files/param_data_H1_a1_th90_vary.csv')
