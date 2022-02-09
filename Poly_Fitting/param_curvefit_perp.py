@@ -10,9 +10,8 @@ param_data_H1_a1_th90=pd.read_csv("Data/csv_files/param_data_H1_a1_th90.csv", in
 vary_param_data_H1_a1_th90=pd.read_csv("Data/csv_files/param_data_H1_a1_th90_vary.csv", index_col=0, header=None)
 
 # model function
-def func(susc, a, b, c, d, e):
-    return a*(susc**4) + b*(susc**3) + c*(susc**2) + d*(susc**1) + e
-
+def func(susc, s0, s1, s2, s3, s4, s5):
+    return s0 + s1*(susc**1) + s2*(susc**2) + s3*(susc**3) + s4*(susc**4) + s5*(susc**5)    
 start_susc=30
 end_susc=39
 
@@ -26,9 +25,12 @@ for ind in range(2):
         p1=np.array(data.loc['p1', start_susc:end_susc])
         p2=np.array(data.loc['p2', start_susc:end_susc])
         p3=np.array(data.loc['p3', start_susc:end_susc])
+        p4=np.array(data.loc['p4', start_susc:end_susc])
+        p5=np.array(data.loc['p5', start_susc:end_susc])
+        p6=np.array(data.loc['p6', start_susc:end_susc])
 
-        p_data_com=np.array([p1,p2,p3])
-        tot_param=3
+        p_data_com=np.array([p1,p2,p3,p4,p5,p6])
+        tot_param=6
         print(susc_data)
 
     elif func_selection==1:
@@ -40,9 +42,12 @@ for ind in range(2):
         p1=np.array(data.loc['p1', start_susc:end_susc])
         p2=np.array(data.loc['p2', start_susc:end_susc])
         p3=np.array(data.loc['p3', start_susc:end_susc])
+        p4=np.array(data.loc['p4', start_susc:end_susc])
+        p5=np.array(data.loc['p5', start_susc:end_susc])
+        p6=np.array(data.loc['p6', start_susc:end_susc])
 
-        p_data_com=np.array([p0,p1,p2,p3])
-        tot_param=4
+        p_data_com=np.array([p0,p1,p2,p3,p4,p5,p6])
+        tot_param=7
     
 
     # effective susceptibility
@@ -70,11 +75,11 @@ for ind in range(2):
         print('Least squares error',np.sqrt(l_sq_err))
         print('R^2 value',R2)
 
-        if tot_param==4:
-            param_str=["p0", "p1", "p2", "p3"]
+        if tot_param==7:
+            param_str=["p0", "p1", "p2", "p3", "p4", "p5", "p6"]
             func_str="Varied model fit"
-        elif tot_param==3:
-            param_str=["p1", "p2", "p3"]
+        elif tot_param==6:
+            param_str=["p1", "p2", "p3", "p4", "p5", "p6"]
             func_str="FDM model fit"
 
         # plot

@@ -1,4 +1,3 @@
-from unittest import case
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import numpy as np
@@ -51,26 +50,25 @@ for i in range(2):
         print()
         print()
         # model function F = muo*(Fdm + p1/r^5 + p2/r^6 + p3/r^7)
-        def func(c, p1, p2, p3):
+        def func(c, p1, p2, p3, p4, p5, p6):
             mu0=4.0*np.pi*1e-7
             susc_eff=3*susc/(3+susc)
             # F_DM=-8*np.pi*susc_eff**2/(3*c**4) # (parallel case)
             F_DM=4*np.pi*susc_eff**2/(3*c**4) # (perpendicular case)
-            return mu0*(F_DM + p1/(c**5) + p2/(c**6) + p3/(c**7))
-    
+            return mu0*(F_DM + p1/(c**5) + p2/(c**6) + p3/(c**7) + p4/(c**8) + p5/(c**9) + p6/(c**10)) # + p7/(c**11) + p8/(c**12) + p9/(c**13))
     elif func_selection==1:
         print("Fitting for varied based function")
         print()
         print()
         #model function F = mu0*(p0/r^ + p1/r^5 + p2/r^6 + p3/r^7)
-        def func(c, p0, p1, p2, p3):
+        def func(c, p0, p1, p2, p3, p4, p5, p6):
             mu0=4.0*np.pi*1e-7
-            return mu0*(p0/(c**4) + p1/(c**5) + p2/(c**6) + p3/(c**7))
+            return mu0*(p0/(c**4) + p1/(c**5) + p2/(c**6) + p3/(c**7) + p4/(c**8) + p5/(c**9) + p6/(c**10)) # + p7/(c**11) + p8/(c**12) + p9/(c**13))
     
     if func_selection==0:
-        complete_param_data=np.zeros((tot_ind,8))
+        complete_param_data=np.zeros((tot_ind,14))
     elif func_selection==1:
-        complete_param_data=np.zeros((tot_ind,10))
+        complete_param_data=np.zeros((tot_ind,16))
 
     for ind in range(tot_ind):
         if case_selection==0:
@@ -165,12 +163,12 @@ for i in range(2):
         if func_selection==0:
             param_data_H1_a1_th90=pd.DataFrame(complete_param_data.transpose(),columns=['0.1','0.15','0.2','0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0',\
                 '8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0','15.0','20.0','30.0','40.0','50.0','60.0','70.0','80.0','90.0','100.0'])
-            param_data_H1_a1_th90['susc']=['p1','p2','p3','std p1','std p2','std p3','least sq err','R2']
+            param_data_H1_a1_th90['susc']=['p1','p2','p3', 'p4','p5','p6','std p1','std p2','std p3','std p4','std p5','std p6','least sq err','R2']
             param_data_H1_a1_th90.set_index('susc', inplace=True)
             param_data_H1_a1_th90.to_csv('Data/csv_files/param_data_H1_a1_th90.csv')
         elif func_selection==1:
             param_data_H1_a1_th90=pd.DataFrame(complete_param_data.transpose(),columns=['0.1','0.15','0.2','0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0',\
                 '8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0','15.0','20.0','30.0','40.0','50.0','60.0','70.0','80.0','90.0','100.0'])
-            param_data_H1_a1_th90['susc']=['p0','p1','p2','p3','std p0','std p1','std p2','std p3','least sq err','R2']
+            param_data_H1_a1_th90['susc']=['p0','p1','p2','p3','p4','p5','p6','std p0','std p1','std p2','std p3','std p4','std p5','std p6','least sq err','R2']
             param_data_H1_a1_th90.set_index('susc', inplace=True)
             param_data_H1_a1_th90.to_csv('Data/csv_files/param_data_H1_a1_th90_vary.csv')
