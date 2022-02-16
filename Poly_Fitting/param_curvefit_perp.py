@@ -12,42 +12,42 @@ vary_param_data_H1_a1_th90=pd.read_csv("Data/csv_files/param_data_H1_a1_th90_var
 # model function
 def func(susc, s0, s1, s2, s3, s4, s5):
     return s0 + s1*(susc**1) + s2*(susc**2) + s3*(susc**3) + s4*(susc**4) + s5*(susc**5)    
-start_susc=30
-end_susc=39
+start_susc=19
+end_susc=37
 
 for ind in range(2):
     func_selection=ind # 0 for FDM and 1 for varied
     if func_selection==0:
         data=param_data_H1_a1_th90
-        
-        # selecting data from susc=15.0 ot 100.0
+
+        data=data.drop([20,21,22,23,24,25,26,27,28,30], axis=1)
         susc_data=np.array(data.loc['susc', start_susc:end_susc])
         p1=np.array(data.loc['p1', start_susc:end_susc])
         p2=np.array(data.loc['p2', start_susc:end_susc])
         p3=np.array(data.loc['p3', start_susc:end_susc])
-        p4=np.array(data.loc['p4', start_susc:end_susc])
-        p5=np.array(data.loc['p5', start_susc:end_susc])
-        p6=np.array(data.loc['p6', start_susc:end_susc])
+        # p4=np.array(data.loc['p4', start_susc:end_susc])
+        # p5=np.array(data.loc['p5', start_susc:end_susc])
+        # p6=np.array(data.loc['p6', start_susc:end_susc])
 
-        p_data_com=np.array([p1,p2,p3,p4,p5,p6])
-        tot_param=6
+        p_data_com=np.array([p1,p2,p3])#,p4,p5,p6])
+        tot_param=3
         print(susc_data)
 
     elif func_selection==1:
         data=vary_param_data_H1_a1_th90
 
-        # selecting data from susc=15.0 ot 100.0
+        data=data.drop([20,21,22,23,24,25,26,27,28,30], axis=1)
         susc_data=np.array(data.loc['susc', start_susc:end_susc])
         p0=np.array(data.loc['p0', start_susc:end_susc])
         p1=np.array(data.loc['p1', start_susc:end_susc])
         p2=np.array(data.loc['p2', start_susc:end_susc])
         p3=np.array(data.loc['p3', start_susc:end_susc])
-        p4=np.array(data.loc['p4', start_susc:end_susc])
-        p5=np.array(data.loc['p5', start_susc:end_susc])
-        p6=np.array(data.loc['p6', start_susc:end_susc])
+        # p4=np.array(data.loc['p4', start_susc:end_susc])
+        # p5=np.array(data.loc['p5', start_susc:end_susc])
+        # p6=np.array(data.loc['p6', start_susc:end_susc])
 
-        p_data_com=np.array([p0,p1,p2,p3,p4,p5,p6])
-        tot_param=7
+        p_data_com=np.array([p0,p1,p2,p3])#,p4,p5,p6])
+        tot_param=4
     
 
     # effective susceptibility
@@ -75,11 +75,11 @@ for ind in range(2):
         print('Least squares error',np.sqrt(l_sq_err))
         print('R^2 value',R2)
 
-        if tot_param==7:
-            param_str=["p0", "p1", "p2", "p3", "p4", "p5", "p6"]
+        if tot_param==4:
+            param_str=["p0", "p1", "p2", "p3"]#, "p4", "p5", "p6"]
             func_str="Varied model fit"
-        elif tot_param==6:
-            param_str=["p1", "p2", "p3", "p4", "p5", "p6"]
+        elif tot_param==3:
+            param_str=["p1", "p2", "p3"]#, "p4", "p5", "p6"]
             func_str="FDM model fit"
 
         # plot

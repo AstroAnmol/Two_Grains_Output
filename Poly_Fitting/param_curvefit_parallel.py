@@ -9,23 +9,23 @@ import pandas as pd
 param_data_H1_a1_th0=pd.read_csv("Data/csv_files/param_data_H1_a1_th0.csv", index_col=0, header=None)
 vary_param_data_H1_a1_th0=pd.read_csv("Data/csv_files/param_data_H1_a1_th0_vary.csv", index_col=0, header=None)
 
-#Power law
-def func(susc, a, b , c):
-    return a*(susc**b) + c
+# #Power law
+# def func(susc, a, b):
+#     return a*(susc**b)
 
-# #Cubic model
-# def func(susc, a, b, c, d):
-#     return a*(susc**3) + b*(susc**2) + c*(susc) + d
+#Cubic model
+def func(susc, a, b, c, d):
+    return a*(susc**3) + b*(susc**2) + c*(susc) + d
 
-start_susc=0
-end_susc=50
+start_susc=19
+end_susc=43
 
 for ind in range(2):
     func_selection=ind # 0 for FDM and 1 for varied
     if func_selection==0:
         data=param_data_H1_a1_th0
         
-        # selecting data from susc=15.0 ot 100.0
+        data=data.drop([20,21,22,23,24,26,27,28,29], axis=1)
         susc_data=np.array(data.loc['susc', start_susc:end_susc])
         p1=np.array(data.loc['p1', start_susc:end_susc])
         p2=np.array(data.loc['p2', start_susc:end_susc])
@@ -38,7 +38,7 @@ for ind in range(2):
     elif func_selection==1:
         data=vary_param_data_H1_a1_th0
 
-        # selecting data from susc=15.0 ot 100.0
+        data=data.drop([20,21,22,23,24,26,27,28,29], axis=1)
         susc_data=np.array(data.loc['susc', start_susc:end_susc])
         p0=np.array(data.loc['p0', start_susc:end_susc])
         p1=np.array(data.loc['p1', start_susc:end_susc])
