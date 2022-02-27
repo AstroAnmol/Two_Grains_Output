@@ -32,7 +32,7 @@ for ind in range(2):
     if func_selection==0:
         data=param_data_H1_a1_th90
 
-        data=data.drop([20,21,22,23,24,25,26,27,28,30], axis=1)
+        data=data.drop([20,21,22,23,24,26,27,28,30], axis=1)
         susc_data=np.array(data.loc['susc', start_susc:end_susc])
         p1=np.array(data.loc['p1', start_susc:end_susc])
         p2=np.array(data.loc['p2', start_susc:end_susc])
@@ -53,7 +53,7 @@ for ind in range(2):
     elif func_selection==1:
         data=vary_param_data_H1_a1_th90
 
-        data=data.drop([20,21,22,23,24,25,26,27,28,30], axis=1)
+        data=data.drop([20,21,22,23,24,26,27,28,30], axis=1)
         susc_data=np.array(data.loc['susc', start_susc:end_susc])
         p0=np.array(data.loc['p0', start_susc:end_susc])
         p1=np.array(data.loc['p1', start_susc:end_susc])
