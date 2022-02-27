@@ -1,24 +1,36 @@
 ## Perpendicular case
-
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import numpy as np
 import pandas as pd
+import sys
 
+file_path = 'Results_txt/complete_fitting_results_th90.txt'
+sys.stdout = open(file_path, "w")
 
 #import the data
-data_H1_a1_th90=pd.read_csv('Data/data_H1_a1_th90.csv')
-#create mesh arrays
-c_data=data_H1_a1_th90['c']
-susc_data=np.array([0.25,	0.5,	0.75,	1,	1.5,	2,	2.5,	3,	3.5,	4,	4.5,	5,	5.5,	6,	6.5,	7,	7.5,	8])
-c_c, susc_susc = np.meshgrid(c_data, susc_data)
-susc_susc=np.reshape(susc_susc,18*12)
-c_c=np.reshape(c_c,18*12)
-susc_strings=np.array(['0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0'])
-fz_data=data_H1_a1_th90['0.25']
-for ind in range(17):
-    fz_data=np.append(fz_data,data_H1_a1_th90[susc_strings[ind+1]])
+data_H1_a1_th90=pd.read_csv('Data/csv_files/data_H1_a1_th90.csv', index_col=0, header=None)
 
+start_susc=19
+end_susc=37
+
+data=data_H1_a1_th90.drop([20,21,22,23,24,26,27,28,30], axis=1)
+
+#create mesh arrays
+c_data = np.linspace(2,4.2,12)
+susc_data=np.array(data.loc['c', start_susc:end_susc])
+c_c, susc_susc = np.meshgrid(c_data, susc_data)
+susc_susc=np.reshape(susc_susc,10*12)
+c_c=np.reshape(c_c,10*12)
+data.columns=data.iloc[0]
+data=data[1:]
+# susc_strings=np.array(['0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0'])
+fz_data=data[susc_data[0]]
+for ind in range(9):
+    fz_data=np.append(fz_data,data[susc_data[ind+1]])
+
+# print(susc_data)
+# print(fz_data)
 
 ## Effective Suscpetibility based
 
@@ -48,11 +60,11 @@ def func_vary(data, a0, b0, c0, d0, a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, 
 
 #Parameters
     #original
-params=np.array([2.1679403, -5.10571752, 0.91979498, -0.14520514, -11.99291281, 32.60814942, -8.5414691, 1.26892871, \
-    12.57083862, -53.1809105, 17.62267505, -2.66077834]) 
+params=np.array([ 2.85053085,  13.01338305, -13.3481429,    2.76301268,  1.07786733, -50.22882015,  57.30886093, -11.85876877,\
+    -13.45113178,  70.54157349, -83.32410681,  12.36183438]) 
     #varied
-params_vary=np.array([-2.35006285, 8.70658619, -2.96749461, 0.51760021, 20.29772718, -39.95880704, 23.81296509, -4.13832093, \
-    -57.57941163, 120.244874, -66.10561194, 11.3095235, 50.04124488, -125.2151948, 64.93845222, -10.91382394])
+params_vary=np.array([-1.37672975,  3.50865885,  3.81067523, -0.52987409,  14.32343401, -16.22374432, -10.19681287,   7.17798667, \
+    -30.19153607,  29.45203331,  48.71913249, -23.8901194,  14.48579267,  -0.64082502, -75.64876388,  23.10873934])
 
 
 #Fit for the parameters of the function func:

@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-susc_data=np.array([0.25,	0.5,	0.75,	1,	1.5,	2,	2.5,	3,	3.5,	4,	4.5,	5,	5.5,	6,	6.5,	7,	7.5,	8])
+susc_data=np.array([0.1,0.15,0.2,0.25,0.5,0.75,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,\
+    7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,15.0,20.0,30.0,40.0,50.0,60.0,70.0,75.0,80.0,85.0,90.0,100.0])
 c_data = np.linspace(2,4.2,12)
 
 susc_susc, c_c = np.meshgrid(susc_data,c_data)
@@ -70,24 +71,25 @@ def func_vary(data, a0, b0, c0, d0, a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, 
     return mu0*(p0/(c**4) + p1/(c**5) + p2/(c**6) + p3/(c**7))
 
 #Parameters
-    #original
-params=np.array([2.1679403, -5.10571752, 0.91979498, -0.14520514, -11.99291281, 32.60814942, -8.5414691, 1.26892871, \
-    12.57083862, -53.1809105, 17.62267505, -2.66077834]) 
-    #varied
-params_vary=np.array([-2.35006285, 8.70658619, -2.96749461, 0.51760021, 20.29772718, -39.95880704, 23.81296509, -4.13832093, \
-    -57.57941163, 120.244874, -66.10561194, 11.3095235, 50.04124488, -125.2151948, 64.93845222, -10.91382394])
+#     #original
+# params=np.array([2.1679403, -5.10571752, 0.91979498, -0.14520514, -11.99291281, 32.60814942, -8.5414691, 1.26892871, \
+#     12.57083862, -53.1809105, 17.62267505, -2.66077834]) 
+#     #varied
+# params_vary=np.array([-2.35006285, 8.70658619, -2.96749461, 0.51760021, 20.29772718, -39.95880704, 23.81296509, -4.13832093, \
+#     -57.57941163, 120.244874, -66.10561194, 11.3095235, 50.04124488, -125.2151948, 64.93845222, -10.91382394])
     #initial
-params=np.array([2.1679403, -5.10571752, 0.91979498, -0.14520514, -11.99291281, 32.60814942, -8.5414691, 1.26892871, \
-    12.57083862, -53.1809105, 17.62267505, -2.66077834]) 
+params=np.array([2.76563441,  -7.99230953,   1.80728296,   8.52475488, -11.91427959,  28.93099765,   9.01997301, -28.67247536, 12.47797255, -46.44021535, \
+    -6.3325673,   24.88405595]) 
 
 fz_og=func_og((c_c,susc_susc), *params)
 # fz_vary=func_vary((c_c,susc_susc), *params_vary)
 
 # print(func_og(2,0.25))
 
-for ind in range(18):
-    susc_strings=np.array(['0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0'])
-    data_H1_a1_th90=pd.read_csv('Data/data_H1_a1_th90.csv')
+for ind in range(susc_data.size):
+    susc_strings=np.array(['0.1','0.15','0.2','0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0',\
+    '8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0','15.0','20.0','30.0','40.0','50.0','60.0','70.0','75.0','80.0','85.0','90.0','100.0'])
+    data_H1_a1_th90=pd.read_csv('Data/csv_files/data_H1_a1_th90.csv')
     fz_data=data_H1_a1_th90[susc_strings[ind]]
     fz_og_data=fz_og[:,ind]
     # fz_vary_data=fz_vary[:,ind]
@@ -112,11 +114,13 @@ for ind in range(18):
     plt.ylabel('fz (N)')
     # plt.title(r"a=1 m, H0=1 A/m, $\theta$=90, $\chi=$"+susc_strings[ind])
     # plt.title(r"a=1 m, H0=1 A/m, $\theta$=90, $\chi=$"+susc_strings[ind]+ "(based on $\chi_{eff}$)")
-    plt.title("a=1 m, H0=1 A/m, $\theta$=90, $\chi=$"+susc_strings[ind]+ "(based on $\chi_{eff}$ and initial guess)")
+    plt.title(r"a=1 m, H0=1 A/m, $\theta$=90, $\chi=$"+susc_strings[ind]+ "(based on $\chi_{eff}$ and initial guess)")
     plt.grid('on')
     plt.legend()
     # plt.show()
-    susc_strings=np.array(['0,25','0,50','0,75','1,0','1,5','2,0','2,5','3,0','3,5','4,0','4,5','5,0','5,5','6,0','6,5','7,0','7,5','8,0'])
+    susc_strings=np.array(['0.1','0.15','0.2','0.25','0.5','0.75','1.0','1.5','2.0','2.5','3.0','3.5','4.0','4.5','5.0','5.5','6.0','6.5','7.0','7.5','8.0',\
+    '8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0','15.0','20.0','30.0','40.0','50.0','60.0','70.0','75.0','80.0','85.0','90.0','100.0'])
     # plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Susceptibility_Based/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'.png')
     # plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Effective_Susceptibility_Based/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
-    plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Effective_Susceptibility_Initial/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
+    plt.savefig('Plots/Fitting/Perpendicular_Case/Cubic_Poly/Complete_Model_Function/Effective_Susceptibility_Initial/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'_chi_eff'+'.png', bbox_inches='tight')
+    plt.close()
