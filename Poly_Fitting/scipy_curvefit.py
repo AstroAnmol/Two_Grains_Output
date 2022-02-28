@@ -1,3 +1,4 @@
+from unittest import case
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import numpy as np
@@ -27,7 +28,7 @@ elif case_selection==1:
     file_path = 'Results_txt/fitting_results_th90.txt'
     sys.stdout = open(file_path, "w")
     
-    data=data_H1_a1_th90.iloc[1:]
+    data=data_H1_a1_th90
     print("####################################################")
     print("Theta=90 deg case (Perpendicular)")
     print("####################################################")
@@ -124,7 +125,10 @@ for i in range(2):
 
         plt.xlabel('c')
         plt.ylabel('fz (N)')
-        plt.title(r"a=1 m, H0=1 A/m, $\theta$=90, $\chi=$"+susc_strings[ind])
+        if case_selection==0:
+            plt.title(r"a=1 m, H0=1 A/m, $\theta$=00 deg, $\chi=$"+susc_strings[ind])
+        elif case_selection==1:
+            plt.title(r"a=1 m, H0=1 A/m, $\theta$=90 deg, $\chi=$"+susc_strings[ind])
         plt.grid('on')
         plt.legend()
         
