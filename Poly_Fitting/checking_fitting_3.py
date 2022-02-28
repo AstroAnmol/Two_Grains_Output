@@ -116,7 +116,7 @@ for ind in range(susc_data.size):
     plt.ylabel('fz (N)')
     # plt.title(r"a=1 m, H0=1 A/m, $\theta$=0, $\chi=$"+susc_strings[ind])
     # plt.title(r"a=1 m, H0=1 A/m, $\theta$=0, $\chi=$"+susc_strings[ind]+ "(based on $\chi_{eff}$)")
-    plt.title(r"a=1 m, H0=1 A/m, $\theta$=0, $\chi=$"+susc_strings[ind]+ "(based on $\chi_{eff}$ and initial guess)")
+    plt.title(r"a=1 m, H0=1 A/m, $\theta$=0 deg, $\chi=$"+susc_strings[ind])#+ "(based on $\chi_{eff}$ and initial guess)")
     plt.grid('on')
     plt.legend()
     # plt.show()
