@@ -19,6 +19,15 @@ def func(g, i):
     ans=3*(H**2)*fz_th0_data[i]/(4*np.pi*rho)
     return -ans/(g*9.81)
 
+def func_mag(g, mag):
+    mag=mag*(1.0e-9)
+    rho=4000
+    mu0=4.0*np.pi*1.0e-7
+    chi=40.0
+    H=mag/(mu0*(1+chi))
+    ans=3*(H**2)*(-0.000203331052979)/(4*np.pi*rho)
+    return -ans/(g*9.81)
+
 def func_self(g):
     return (g*9.81)/(1.0e-6)
 
@@ -36,14 +45,29 @@ plt.loglog(g_data,func(g_data, 7), '--', label='$\chi=40.0$')
 #plt.loglog(g_data,func(g_data,11), '--', label='$\chi=60.0$')
 plt.loglog(g_data,func(g_data,15), '--', label='$\chi=80.0$')
 
-plt.loglog(g_data,func_self(g_data), label='self gravity radius')
-plt.loglog(g_data,func_vand(g_data), label='VDW for S=0.01')
+# plt.loglog(g_data,func_self(g_data), label='self gravity radius')
+# plt.loglog(g_data,func_vand(g_data), label='VDW for S=0.01')
 
 # plt.ylim(1.0e-6,1)
 plt.xlim(1.0e-8,1)
 plt.legend()
 plt.yticks(rotation=90)
-# plt.title("")
+plt.title(r"$H_0= 500 nT$ and $\rho= 4\ g\ cm^{-3}$")
+plt.xlabel('Ambient Gravitational Acceleration (Earth Gs)')
+plt.ylabel('Particle Radius (meters)')
+plt.grid(True)
+plt.show()
+
+plt.figure()
+plt.loglog(g_data,func_mag(g_data,1), '--', label='$H_0=1 nT$')
+plt.loglog(g_data,func_mag(g_data,10), '--', label='$H_0=10 nT$')
+plt.loglog(g_data,func_mag(g_data,100), '--', label='$H_0=100 nT$')
+plt.loglog(g_data,func_mag(g_data,500), '--', label='$H_0=500 nT$')
+plt.loglog(g_data,func_mag(g_data,1000), '--', label='$H_0=1000 nT$')
+
+plt.legend()
+plt.yticks(rotation=90)
+plt.title(r"$\chi=40.0$ and $\rho= 4\ g\ cm^{-3}$")
 plt.xlabel('Ambient Gravitational Acceleration (Earth Gs)')
 plt.ylabel('Particle Radius (meters)')
 plt.grid(True)
