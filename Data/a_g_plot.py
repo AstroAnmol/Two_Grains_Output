@@ -1,3 +1,4 @@
+from click import style
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,7 +13,7 @@ g_data=np.array([1.0e-8,  1.0e-7,   1.0e-6,     1.0e-5,     1.0e-4,     1.0e-3, 
 ## function for bond number = 1
 def func(g, i):
     B=500*(1.0e-9)    #tesla
-    rho=4000            #Kg/m^3
+    rho=5000            #Kg/m^3
     mu0=4.0*np.pi*1.0e-7
     chi=susc_data[i]
     H=B/(mu0*(1+chi))
@@ -21,7 +22,7 @@ def func(g, i):
 
 def func_mag(g, mag):
     mag=mag*(1.0e-9)
-    rho=4000
+    rho=5000
     mu0=4.0*np.pi*1.0e-7
     chi=40.0
     H=mag/(mu0*(1+chi))
@@ -44,15 +45,16 @@ plt.loglog(g_data,func(g_data, 3), '--', label='$\chi=20.0$')
 plt.loglog(g_data,func(g_data, 7), '--', label='$\chi=40.0$')
 #plt.loglog(g_data,func(g_data,11), '--', label='$\chi=60.0$')
 plt.loglog(g_data,func(g_data,15), '--', label='$\chi=80.0$')
-
+plt.axvline(x = 0.144/9.81 , color = 'b', linestyle='-.')#, label = '')
+plt.annotate(xy=[0.2/9.81, 1.2e-6], s='Psyche')
 # plt.loglog(g_data,func_self(g_data), label='self gravity radius')
 # plt.loglog(g_data,func_vand(g_data), label='VDW for S=0.01')
 
 # plt.ylim(1.0e-6,1)
 plt.xlim(1.0e-8,1)
-plt.legend()
+plt.legend(loc=3)
 plt.yticks(rotation=90)
-plt.title(r"$H_0= 500 nT$ and $\rho= 4\ g\ cm^{-3}$")
+plt.title(r"$H_0= 500 nT$ and $\rho= 5\ g\ cm^{-3}$")
 plt.xlabel('Ambient Gravitational Acceleration (Earth Gs)')
 plt.ylabel('Particle Radius (meters)')
 plt.grid(True)
@@ -64,10 +66,13 @@ plt.loglog(g_data,func_mag(g_data,10), '--', label='$H_0=10 nT$')
 plt.loglog(g_data,func_mag(g_data,100), '--', label='$H_0=100 nT$')
 plt.loglog(g_data,func_mag(g_data,500), '--', label='$H_0=500 nT$')
 plt.loglog(g_data,func_mag(g_data,1000), '--', label='$H_0=1000 nT$')
+plt.axvline(x = 0.144/9.81 , color = 'b', linestyle='-.')#, label = '')
+plt.annotate(xy=[0.2/9.81, 1.2e-6], s='Psyche')
 
+plt.xlim(1.0e-8,1)
 plt.legend()
 plt.yticks(rotation=90)
-plt.title(r"$\chi=40.0$ and $\rho= 4\ g\ cm^{-3}$")
+plt.title(r"$\chi=40.0$ and $\rho= 5\ g\ cm^{-3}$")
 plt.xlabel('Ambient Gravitational Acceleration (Earth Gs)')
 plt.ylabel('Particle Radius (meters)')
 plt.grid(True)
