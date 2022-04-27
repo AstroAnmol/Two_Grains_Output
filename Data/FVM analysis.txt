@@ -1,0 +1,127 @@
+#########################################################
+Susc=30         |       Spherical harmonics Result: -3.28E-07
+#########################################################
+
+n = 2000
+m = 2000
+alpha= 0.2517
+Grid= 50*a on each side
+f =   8.3589e-06
+
+
+n = 1000
+m = 1000
+alpha= 0.2517
+Grid= 50*a on each side
+f =   3.7224e-06
+
+
+n = 1000
+m = 1000
+alpha= 0.2517
+Grid= 16*a on each side
+f =   1.4711e-05
+
+
+
+n = 1000
+m = 1118
+alpha= 0.2517
+Grid 16 a in each side of particle surface
+f =  5.2154e-06
+
+n = 1000
+m = 1118
+alpha= 0.4
+Grid 16 a in each side of particle surface
+f =  -3.9225e-07
+
+#########################################################
+Varying alpha for all other parameters fixed
+#########################################################
+    n = 1000
+    m = 1118
+    alpha= 0.1
+    Grid 16 a in each side of particle surface
+    f =   2.6730e-05
+
+    n = 1000
+    m = 1118
+    alpha= 0.2
+    Grid 16 a in each side of particle surface
+    f =   9.9325e-06
+
+    n = 1000
+    m = 1118
+    alpha= 0.3
+    Grid 16 a in each side of particle surface
+    f =   2.5292e-06
+
+    n = 1000
+    m = 1118
+    alpha= 0.4
+    Grid 16 a in each side of particle surface
+    f =  -3.9225e-07
+
+    n = 1000
+    m = 1118
+    alpha= 0.5
+    Grid 16 a in each side of particle surface
+    f =  -1.3597e-06
+
+#########################################################
+
+    n = 2500
+    m = 2794
+
+    alpha= 0.1
+    f =  -7.1823e-06
+    
+    alpha= 0.2
+    f =  -3.1032e-06
+
+    alpha= 0.3
+    f =  -1.3798e-06
+
+    alpha= 0.4
+    f =  -6.3023e-07
+
+#########################################################
+Surface integral
+#########################################################
+    n = 2000
+    m = 2235
+
+    alpha = 0.1 
+    f =    1.0e-06 *0.1397
+
+    alpha = 0.2
+    f =    1.0e-06 *0.1410
+    
+    alpha = 0.3
+    f =    1.0e-06 *0.1397
+
+    alpha = 0.3
+    f =    1.0e-06 *0.1372
+
+
+#########################################################
+Susc=1                  | Spherical harmonics Result= -2.36E-08
+#########################################################
+Varying alpha for all other parameters fixed
+#########################################################
+    n = 2500
+    m = 2794
+
+    alpha= 0.1
+    f =  -3.1331e-07
+
+    alpha= 0.2
+    f =  -3.4529e-07
+
+    alpha= 0.3
+    f =  -3.3158e-07
+
+    alpha= 0.4
+    f =   -3.1251e-07
+
