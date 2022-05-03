@@ -1,10 +1,48 @@
 import pandas as pd
 import numpy as np
+from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
+
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+from scipy.interpolate import make_interp_spline
 
 plt.rcParams['text.usetex'] = True
 
+def set_size(width_pt, fraction=1, subplots=(1, 1)):
+    """Set figure dimensions to sit nicely in our document.
 
+    Parameters
+    ----------
+    width_pt: float
+            Document width in points
+    fraction: float, optional
+            Fraction of the width which you wish the figure to occupy
+    subplots: array-like, optional
+            The number of rows and columns of subplots.
+    Returns
+    -------
+    fig_dim: tuple
+            Dimensions of figure in inches
+    """
+    # Width of figure (in pts)
+    fig_width_pt = width_pt * fraction
+    # Convert from pt to inches
+    inches_per_pt = 1 / 72.27
+
+    # Golden ratio to set aesthetic figure height
+    golden_ratio = (5**.5 - 1) / 2
+
+    # Figure width in inches
+    fig_width_in = fig_width_pt * inches_per_pt
+    # Figure height in inches
+    fig_height_in = fig_width_in #* golden_ratio * (subplots[0] / subplots[1])
+
+    return (fig_width_in, fig_height_in)
+
+#Read images
+parallel_black = mpimg.imread('/home/aerospacenerd/Desktop/IPE/parallel_case_black.png')
+
+#Data
 sep=np.arange(2.0, 4.3, 0.2)
 
 MDM_96 = np.array([-1.76216,-1.16587,	-0.80543,	-0.575792,	-0.423281,	-0.318505,
@@ -41,24 +79,53 @@ FVM_4_k= np.array([3.50934272698700e-06,2.00351227085717e-06,1.30167932187016e-0
 
 FVM_4_k=-FVM_4_k
 
-plt.figure()
-plt.plot(sep, MDM_96[:12]/Multipole_96[0], '-', label='Mutual Dipole Moment')
-plt.plot(sep[1:], FVM_96[:11]/Multipole_96[0], '--', label='Finite Volume Method')
-plt.plot(sep, Multipole_96[:12]/Multipole_96[0], '-.', label='Spherical Harmonic Approximation')
-plt.legend()
-plt.title(r'$\theta=0\ deg,\quad \chi=0.96$')
-plt.xlabel('Separation Distance (Particle Radius)')
-plt.ylabel('Normalized Force')
-plt.grid(True)
-plt.show()
+MDM=MDM_4_k
+FVM=FVM_4_k
+Multipole=Multipole_4_k
 
-plt.figure()
-plt.plot(sep, MDM_4_k[:12]/Multipole_4_k[0], '-', label='Mutual Dipole Moment')
-plt.plot(sep[1:], FVM_4_k[:11]/Multipole_4_k[0], '--', label='Finite Volume Method')
-plt.plot(sep, Multipole_4_k[:12]/Multipole_4_k[0], '-.', label='Spherical Harmonic Approximation')
-plt.legend()
+# Making Splines
+MDM_spline = make_interp_spline(sep, MDM[:12]/Multipole[0])
+FVM_spline = make_interp_spline(sep[1:], FVM[:11]/Multipole[0])
+Multipole_spline = make_interp_spline(sep, Multipole[:12]/Multipole[0])
+
+# Returns evenly spaced numbers
+# over a specified interval.
+SEP = np.linspace(sep.min(), sep.max(), 500)
+SEP_FVM = np.linspace(sep[1:].min(), sep.max(), 500)
+
+MDM_spline_data = MDM_spline(SEP)
+FVM_spline_data = FVM_spline(SEP_FVM)
+Multipole_spline_data = Multipole_spline(SEP)
+
+fig, ax = plt.subplots(figsize=set_size(513.1174))
+plt.plot(sep, MDM[:12]/Multipole[0], ':')#, label='Mutual Dipole Moment')
+plt.plot(sep[1:], FVM[:11]/Multipole[0], '--')#, label='Finite Volume Method')
+plt.plot(sep, Multipole[:12]/Multipole[0], '-')#, label='Spherical Harmonic Approximation')
+# plt.legend()
 plt.title(r'$\theta=0\ deg,\quad \chi=4$')
 plt.xlabel('Separation Distance (Particle Radius)')
 plt.ylabel('Normalized Force')
-plt.grid(True)
+# plt.grid(True)
+
+newax = fig.add_axes([0.5,0.35,0.5,0.5], zorder=1)
+newax.imshow(parallel_black)
+newax.axis('off')
+
+# imagebox = OffsetImage(parallel_black, zoom=0.4)
+# ab = AnnotationBbox(imagebox, (0.86, 0.7))
+# ax.add_artist(ab)
+
+plt.draw()
+
 plt.show()
+fig.savefig('/home/aerospacenerd/Desktop/IPE/susc4_parallel_comparison.png')
+# plt.figure()
+# plt.plot(SEP, MDM_spline_data, ':')#, label='Mutual Dipole Moment')
+# plt.plot(SEP_FVM, FVM_spline_data, '--')#, label='Finite Volume Method')
+# plt.plot(SEP, Multipole_spline_data, '-')#, label='Spherical Harmonic Approximation')
+# # plt.legend()
+# plt.title(r'$\theta=0\ deg,\quad \chi=4$')
+# plt.xlabel('Separation Distance (Particle Radius)')
+# plt.ylabel('Normalized Force')
+# # plt.grid(True)
+# plt.show()
