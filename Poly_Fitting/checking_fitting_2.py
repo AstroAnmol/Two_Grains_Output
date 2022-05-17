@@ -3,6 +3,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import tikzplotlib as tpl
 
 susc_data=np.array([0.1,0.15,0.2,0.25,0.5,0.75,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,\
     7.5,8.0,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,15.0,20.0,30.0,40.0,50.0,60.0,70.0,75.0,80.0,85.0,90.0,100.0])
@@ -122,5 +123,6 @@ for ind in range(susc_data.size):
     '8.5','9.0','9.5','10.0','10.5','11.0','11.5','12.0','15.0','20.0','30.0','40.0','50.0','60.0','70.0','75.0','80.0','85.0','90.0','100.0'])
     # plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Susceptibility_Based/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'.png')
     # plt.savefig('Plots/Fitting/Perpendicular_Case/Complete_Model_Function/Effective_Susceptibility_Based/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'_chi_eff'+'.png')
-    plt.savefig('Plots/Fitting/Perpendicular_Case/Cubic_Poly/Complete_Model_Function/Effective_Susceptibility_Initial/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'_chi_eff'+'.png', bbox_inches='tight')
+    # plt.savefig('Plots/Fitting/Perpendicular_Case/Cubic_Poly/Complete_Model_Function/Effective_Susceptibility_Initial/a_1_H0_1_th_90_chi_'+susc_strings[ind]+'_chi_eff'+'.png', bbox_inches='tight')
+    tpl.save('/home/aerospacenerd/Research/Planetary_Science_Journal/Tikz/Fitting_Plots/perpendicular_case/a_1_H0_1_th_00_chi_'+susc_strings[ind]+'_chi_eff'+'.tex')
     plt.close()
